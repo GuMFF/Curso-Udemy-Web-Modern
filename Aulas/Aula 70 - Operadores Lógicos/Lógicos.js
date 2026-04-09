@@ -1,0 +1,6 @@
+console.log(true && 'curto-circuito mostra o último truthy')
+console.log(false && 'não chega aqui')
+console.log(true || 'curto-circuito para no primeiro true')
+console.log(false || 'mostra este, pois false é falsy')
+console.log(!true)
+console.log(!!'texto')
