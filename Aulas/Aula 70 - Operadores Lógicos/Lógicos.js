@@ -1,6 +1,24 @@
-console.log(true && 'curto-circuito mostra o último truthy')
-console.log(false && 'não chega aqui')
-console.log(true || 'curto-circuito para no primeiro true')
-console.log(false || 'mostra este, pois false é falsy')
-console.log(!true)
-console.log(!!'texto')
+function tratarErroELancar(erro){
+    //throw new Erro('...')
+    //throw 10
+    //throw true
+    // throw 'mensagem'
+    throw {
+        nome: erro.name,
+        msg: erro.message,
+        date: new Date
+    }
+}
+
+function imprimirNomeGritado(obj) {
+    try{
+        console.log(obj.name.toUpperCase() +  '!!!' )
+    } catch(e) {
+        tratarErroELancar(e)
+    } finally {
+        console.log('final')
+    }
+}
+
+const obj =  { nome: 'Roberto' }
+imprimirNomeGritado(obj)
